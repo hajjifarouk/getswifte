@@ -1,0 +1,66 @@
+<main class="main">
+    
+    
+        <app-nav-bar></app-nav-bar>
+    
+        <app-side-menu></app-side-menu>
+    
+        
+    
+        <section class="content">
+            <div class="content__inner content__inner--sm">
+                <header class="content__title">
+                    
+
+                    
+                </header>
+
+                <div class="card profile">
+                    <div class="profile__img">
+                        <img src="http://getswifte.com/{{user.image}}" onError="this.src='/assets/img/dummy_image.png';" alt="">
+
+                        
+                    </div>
+
+                    <div class="profile__info">
+
+                        <ul class="icon-list">
+                            <h1>{{user.first_name}} {{user.last_name}}</h1>
+                            
+                            <li><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> {{user.city_or_university}}</li>
+                            
+                            <li><i class="zmdi zmdi-phone"></i> {{user.phone}}</li>
+                            <li><i class="zmdi zmdi-email"></i> {{user.uni_email}}</li>
+                            <li><i class="zmdi zmdi-audio zmdi-hc-fw"></i>{{user.favorite_music}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+
+                <div class="card">
+                        <div class="card-block">
+                        <h1 class="card-block__title text-center mb-4"><strong>Rides History</strong></h1>
+                        <div class="listview">
+                                <div  class="listview__item" *ngFor="let ride of rides" (click)="thisRide(ride)">
+                                    <img src="http://getswifte.com/{{user.image}}" class="listview__img" onError="this.src='/assets/img/dummy_image.png';"
+                                        alt="">
+        
+                                    <div class="listview__content">
+                                        <div class="listview__heading"><strong>{{user.first_name}}</strong></div>
+                                        <p>{{ride.location_from}}<i class="zmdi zmdi-trending-flat zmdi-hc-fw" aria-hidden="true"></i>{{ride.location_to}}
+                                        </p>
+                                        <p> {{ride.start_date}} <strong>At</strong> {{ride.start_time}}
+                                            <span class="badge badge-pill badge-success"><i class="zmdi zmdi-money zmdi-hc-fw"></i>{{ride.price_per_passenger}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+    
+        </section>
+    
+    
+    </main>

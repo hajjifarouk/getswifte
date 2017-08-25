@@ -1,0 +1,63 @@
+<main class="main">
+
+
+    <app-nav-bar></app-nav-bar>
+
+    <app-side-menu></app-side-menu>
+
+    
+
+    <section class="content">
+        <agm-map [latitude]="lat" [longitude]="lng">
+            <agm-marker *ngFor="let location of locations" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+        </agm-map>
+        <div class="text-center">
+                <h4>Community</h4>
+            </div>
+            <div class="row col-sm-12 col-md-12">
+                
+                    <div class="col-sm-1 col-md-1"></div>
+                <div class="card col-sm-5 col-md-5" id="rides">
+                    <div class="card-header text-center">
+                        <h2 class="card-title">Rides</h2>
+                    </div>
+                    <div class="listview">
+                        <div  class="listview__item" *ngFor="let ride of rides" (click)="onTap(ride)">
+                            <img src="http://getswifte.com/{{ride.user_info.image}}" class="listview__img" onError="this.src='/assets/img/dummy_image.png';"
+                                alt="">
+
+                            <div class="listview__content">
+                                <div class="listview__heading"><strong>{{ride.user_info.first_name}}</strong></div>
+                                <p>{{ride.location_from}}<i class="zmdi zmdi-trending-flat zmdi-hc-fw" aria-hidden="true"></i>{{ride.location_to}}
+                                </p>
+                                <p> {{ride.start_date}} <strong>At</strong> {{ride.start_time}}
+                                    <span class="badge badge-pill badge-success"><i class="zmdi zmdi-money zmdi-hc-fw"></i>{{ride.price_per_passenger}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-sm-5 col-md-5">
+                    <div class="card-header text-center">
+                        <h2 class="card-title">Groups</h2>
+                    </div>
+                    <div class="listview">
+                        <div class="listview__item" *ngFor="let group of groups">
+                            <img src="http://getswifte.com/{{group.image}}" class="listview__img" onError="this.src='/assets/img/dummy_image.png';"
+                                alt="">
+
+                            <div class="listview__content">
+                                <div class="listview__heading">Group Name : <strong>{{group.name}}</strong>
+                                <p>Members : <span class="badge badge-pill badge-primary"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>{{group.nb_people}} </span>                
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+
+</main>

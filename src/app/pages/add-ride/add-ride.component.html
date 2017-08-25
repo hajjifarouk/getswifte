@@ -1,0 +1,127 @@
+<main class="main">
+
+
+  <app-nav-bar></app-nav-bar>
+
+  <app-side-menu></app-side-menu>
+
+
+
+  <section class="content">
+    <div class="card col-sm-12 col-md-12">
+      <div class="card-block">
+        <h1 class="card-block__title text-center mb-4"><strong>Add Ride</strong></h1>
+        <div class="form-group">
+          <input placeholder="Start location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control form-control-lg"
+            #search>
+        </div>
+        <div class="form-group">
+          <input placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control form-control-lg"
+            #search1>
+        </div>
+        <div class="form-group form-group--float form-group--centered">
+          <div class="btn-group" data-toggle="buttons">
+            <label (click)="isOneWay()" class="btn active btn-lg">
+                    <input type="radio"  name="options" id="option1" autocomplete="off" checked> One Way
+                </label>
+            <label (click)="isRound()" class="btn btn-lg">
+                    <input type="radio"  name="options" id="option2" autocomplete="off"> Round Trip
+                </label>
+            <label (click)="isWeekly()" class="btn btn-lg">
+                    <input type="radio"  name="options" id="option3" autocomplete="off"> Weekly
+                </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5 col-md-5">
+            <label>Start Date</label>
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+              <div class="form-group">
+                <input [(ngModel)]="ride.start_date" type="text" class="form-control date-picker" placeholder="Pick a date">
+                <i class="form-group__bar"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5 col-md-5">
+            <label>Start Time</label>
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+              <div class="form-group">
+                <input [(ngModel)]="ride.start_time" type="text" class="form-control time-picker" placeholder="Pick a time">
+                <i class="form-group__bar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5 col-md-5">
+            <label>Return Date</label>
+
+            <div class="input-group">
+              <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+              <div class="form-group">
+                <input [(ngModel)]="ride.return_date" type="text" class="form-control date-picker" placeholder="Pick a date">
+                <i class="form-group__bar"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5 col-md-5">
+            <label>Return Time</label>
+
+            <div class="input-group ">
+              <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+              <div class="form-group">
+                <input [(ngModel)]="ride.return_time" type="text" class="form-control time-picker" placeholder="Pick a time">
+                <i class="form-group__bar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5 col-md-5">
+            <label>Seats</label>
+            <div class="input-group ">
+
+              <span class="input-group-addon"><i class="zmdi zmdi-seat zmdi-hc-fw"></i></span>
+              <div class="form-group">
+                <input  [(ngModel)]="ride.seats" type="Number" class="form-control" placeholder="Seats Available">
+                <i class="form-group__bar"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5 col-md-5">
+            <label>Price</label>
+            <div class="input-group">
+
+              <span class="input-group-addon"><i class="zmdi zmdi-money zmdi-hc-fw"></i></span>
+              <span class="input-group-addon">0.00</span>
+              <div class="form-group">
+                <input [(ngModel)]="ride.price_per_passenger" type="text" class="form-control" placeholder="Price / Seat">
+                <i class="form-group__bar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-group--float form-group--centered">
+            <div class="btn-group" data-toggle="buttons">
+              <label (click)="small()" class="btn active btn-lg">
+                      <input type="radio" name="options" id="option1" autocomplete="off" checked> SMALL
+                  </label>
+              <label (click)="medium()" class="btn btn-lg">
+                      <input type="radio" name="options" id="option2" autocomplete="off"> MEDIUM
+                  </label>
+              <label (click)="large()" class="btn btn-lg">
+                      <input type="radio" name="options" id="option3" autocomplete="off"> LARGE
+                  </label>
+            </div>
+          </div>
+          <button (click)="send()" type="button" class="btn btn-primary btn-block btn-lg">ADD RIDE</button>
+      </div>
+    </div>
+  </section>
+
+
+</main>
